@@ -13,7 +13,7 @@ rp_module_section="opt"
 rp_module_flags=""
 
 function depends_advmame() {
-    local depends=('clang' 'sdl2')
+    local depends=('sdl2')
     if isPlatform "rpi"; then
         depends+=('raspberrypi-firmware')
     fi
@@ -35,7 +35,7 @@ function build_advmame() {
     )
 
     ./autogen.sh
-    ./configure CC="clang" CXX="clang++" --prefix="${md_inst}" "${params[@]}"
+    ./configure --prefix="${md_inst}" "${params[@]}"
     make clean
     make
     md_ret_require="${md_build}/${md_id}"
