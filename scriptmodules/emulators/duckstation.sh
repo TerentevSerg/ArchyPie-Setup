@@ -40,6 +40,7 @@ function build_duckstation() {
         -DBUILD_TESTING=NO \
         -DUSE_DRMKMS=ON \
         -DUSE_WAYLAND=ON \
+        -DBUILD_NOGUI_FRONTEND=ON \
         -Wno-dev
     ninja -C build clean
     ninja -C build
@@ -54,10 +55,7 @@ function install_duckstation() {
     md_ret_files=(
         'build/bin/duckstation-nogui' 
         'build/bin/duckstation-qt'
-        'build/bin/database'
-        'build/bin/inputprofiles'
         'build/bin/resources'
-        'build/bin/shaders'
         'build/bin/translations'
     )
 }
